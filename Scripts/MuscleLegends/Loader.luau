@@ -1,7 +1,5 @@
 --[[
-    Silence - Ml Farming
-    by Henne @xyzhenrik_
-       Muki @mukimagdich
+    NovaBlockStudio by @Christian_014
 ]]
 
 local services = {
@@ -58,8 +56,8 @@ deleteBodyMovementScript()
 
 services.muscleEvent = lp.player:WaitForChild("muscleEvent")
 
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/silencedevs/SilenceScripts/refs/heads/main/librarys/eleriumv2.luau"))()
-local silence = library:AddWindow("Silence | Fast Farming - Hey, " .. lp.displayname .. "!", {
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Chrismon014/Script-muscle-/refs/heads/main/eleriumv2.luau"))()
+local silence = library:AddWindow("NovaBlockStudio | Fast Farming - Hello, " .. lp.displayname .. "!", {
     main_color = Color3.fromRGB(138, 0, 0),
     min_size = Vector2.new(500, 500),
     can_resize = false
