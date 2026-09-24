@@ -56,7 +56,7 @@ deleteBodyMovementScript()
 
 services.muscleEvent = lp.player:WaitForChild("muscleEvent")
 
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Chrismon014/Script-muscle-/refs/heads/main/eleriumv2.luau"))()
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Chrismon014/Script-muscle-/refs/heads/main/Library/eleriumv2.luau"))()
 local silence = library:AddWindow("NovaBlockStudio | Fast Farming - Hello, " .. lp.displayname .. "!", {
     main_color = Color3.fromRGB(138, 0, 0),
     min_size = Vector2.new(500, 500),
@@ -65,8 +65,8 @@ local silence = library:AddWindow("NovaBlockStudio | Fast Farming - Hello, " .. 
 
 local tabs = {
     rebirths = silence:AddTab("Rebirths"),
-    strength = silence:AddTab("Strength (Main)"),
-    strength2 = silence:AddTab("Strength (If Main lags)"),
+    strength = silence:AddTab("Strength (Fast)"),
+    strength2 = silence:AddTab("Strength (Add)"),
     other = silence:AddTab("Other"),
     info = silence:AddTab("Info")
 }
