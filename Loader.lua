@@ -1511,7 +1511,6 @@ local timeDropdown = AutoFarm:AddDropdown("Change Time", function(selection)
     end
 end)
 
--- ÃƒÆ’Ã‚Â°Ãƒâ€¦Ã‚Â¸ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒâ€¦  NUEVA PESTAÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‹Å“A: CALCULAR STATS
 local features = window:AddTab("Stats Farm")
 
 
@@ -1547,9 +1546,6 @@ projectedStrengthLabel.TextSize = 20
 local projectedDurabilityLabel = features:AddLabel("Durability Rate: 0 /Hour | 0 /Day | 0 /Week | 0 /Month")
 projectedDurabilityLabel.TextSize = 20
 
-local projectedAgilityLabel = features:AddLabel("Agility Rate: 0 /Hour | 0 /Day | 0 /Week | 0 /Month")
-projectedAgilityLabel.TextSize = 20
-
 features:AddLabel("").TextSize = 10
 
 local statsLabel = features:AddLabel("Stats:")
@@ -1561,18 +1557,13 @@ strengthLabel.TextSize = 20
 local durabilityLabel = features:AddLabel("Durability: 0 | Gained: 0")
 durabilityLabel.TextSize = 20
 
-local agilityLabel = features:AddLabel("Agility: 0 | Gained: 0")
-agilityLabel.TextSize = 20
-
 local startTime = tick()
 local initialStrength = strengthStat.Value
 local initialDurability = durabilityStat.Value
-local initialAgility = agilitySta.Value
 local trackingStarted = false
 
 local strengthHistory = {}
 local durabilityHistory = {}
-local agilityHistory = {}
 local calculationInterval = 10
 
 task.spawn(function()
@@ -1581,14 +1572,12 @@ task.spawn(function()
         local currentTime = tick()
         local currentStrength = strengthStat.Value
         local currentDurability = durabilityStat.Value
-		local currentAgility = agilityyStat.Value
 
         if not trackingStarted and (currentStrength - initialStrength) >= 100e9 then
             trackingStarted = true
             startTime = tick()
             strengthHistory = {}
             durabilityHistory = {}
-			agilityHistory = {}
         end
 
         if trackingStarted then
@@ -1602,24 +1591,18 @@ task.spawn(function()
 
             local sessionStrengthDelta = currentStrength - initialStrength
             local sessionDurabilityDelta = currentDurability - initialDurability
-			local sessionAgilityDelta = currentAgility - initialAgility
 
             strengthLabel.Text = "Strength: " .. formatNumber(currentStrength) .. " | Gained: " .. formatNumber(sessionStrengthDelta)
             durabilityLabel.Text = "Durability: " .. formatNumber(currentDurability) .. " | Gained: " .. formatNumber(sessionDurabilityDelta)
-			agilityLabel.Text = "Agility: " .. formatNumber(currentAgility) .. " | Gained: " .. formatNumber(sessionAgilityDelta)
 
             table.insert(strengthHistory, {time = currentTime, value = currentStrength})
             table.insert(durabilityHistory, {time = currentTime, value = currentDurability})
-			table.insert(agilityHistory, {time = currentTime, value = currentAgility})
 
             while #strengthHistory > 0 and currentTime - strengthHistory[1].time > calculationInterval do
                 table.remove(strengthHistory, 1)
             end
             while #durabilityHistory > 0 and currentTime - durabilityHistory[1].time > calculationInterval do
                 table.remove(durabilityHistory, 1)
-            end
-				while #agilityHistory > 0 and currentTime - agilityHistory[1].time > calculationInterval do
-                table.remove(agilityHistory, 1)
             end
 
             if currentTime - lastCalcTime >= calculationInterval then
@@ -1645,17 +1628,6 @@ task.spawn(function()
                     local durabilityPerMonth = math.floor(durabilityPerSecond * 2592000)
 
                     projectedDurabilityLabel.Text = "Durability Rate: " .. formatNumber(durabilityPerHour) .. "/Hour | " .. formatNumber(durabilityPerDay) .. "/Day | " .. formatNumber(durabilityPerWeek) .. "/Week | " .. formatNumber(durabilityPerMonth) .. "/Month"
-                end
-					
-				if #agilityHistory >= 2 then
-                    local agilityDelta = agilityHistory[#agilityHistory].value - agilityHistory[1].value
-                    local agilityPerSecond = agilityDelta / calculationInterval
-                    local agilityPerHour = math.floor(agilityPerSecond * 3600)
-                    local agilityPerDay = math.floor(agilityPerSecond * 86400)
-                    local agilityPerWeek = math.floor(agilityPerSecond * 604800)
-                    local agilityPerMonth = math.floor(agilityPerSecond * 2592000)
-
-                    projectedAgilityLabel.Text = "Agility Rate: " .. formatNumber(agilityPerHour) .. "/Hour | " .. formatNumber(agilityPerDay) .. "/Day | " .. formatNumber(agilityPerWeek) .. "/Week | " .. formatNumber(agilityPerMonth) .. "/Month"
                 end
             end
         end
