@@ -144,7 +144,7 @@ local function eatProteinEggNew()
         end)
         print("[AutoEgg] Protein Egg consumido.")
     else
-        warn("[AutoEgg] No se encontrÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³ Protein Egg en Backpack.")
+        warn("[AutoEgg] Protein Egg en Backpack.")
     end
 end
 
@@ -264,7 +264,7 @@ AutoFarm:AddSwitch("Anti AFK", function(state)
         uselesslabelone.Position = UDim2.new(0.3,0,0,0)
         uselesslabelone.Size = UDim2.new(0,95,0,24)
         uselesslabelone.Font = Enum.Font.SourceSans
-        uselesslabelone.Text = "Anti Afk sacado de chat gpt de rafaelÃƒÆ’Ã‚Â°Ãƒâ€¦Ã‚Â¸Ãƒâ€¹Ã…â€œÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡"
+        uselesslabelone.Text = "Anti Afk"
         uselesslabelone.TextColor3 = Color3.fromRGB(255,255,255)
         uselesslabelone.TextSize = 14
 
@@ -440,7 +440,7 @@ end)
 
 
 AutoFarm:AddButton("Equip Swift Samurai", function()
-    print("BotÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³n presionado: equipando 8 Swift Samurai")
+    print("Equipando Swift Samurai")
 
     local LocalPlayer = game:GetService("Players").LocalPlayer
     local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -460,7 +460,7 @@ AutoFarm:AddButton("Equip Swift Samurai", function()
 
     -- Ahora equipamos mÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡ximo 8 "Swift Samurai"
     local equipped = 0
-    local maxEquip = 8
+    local maxEquip = 12
     for _, folder in pairs(petsFolder:GetChildren()) do
         if folder:IsA("Folder") then
             for _, pet in pairs(folder:GetChildren()) do
@@ -482,27 +482,27 @@ end)
 
 
 -- ÃƒÆ’Ã‚Â°Ãƒâ€¦Ã‚Â¸Ãƒâ€¦Ã‚Â½Ãƒâ€šÃ‚Â® BotÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³n: Jungle Squat
-AutoFarm:AddButton("Jungle Squat", function()
+AutoFarm:AddButton("Industrial Squat", function()
     local char = LocalPlayer.Character
     if char and char:FindFirstChild("HumanoidRootPart") then
-        char:SetPrimaryPartCFrame(CFrame.new(-8374.25586, 34.5933418, 2932.44995))
+        char:SetPrimaryPartCFrame(CFrame.new(-5217.115234375, 60.154441833496094, 5418.0771484375))
         
         local machine = workspace:FindFirstChild("machinesFolder")
         if machine and machine:FindFirstChild("Jungle Squat") then
-            local seat = machine["Jungle Squat"]:FindFirstChild("interactSeat")
+            local seat = machine["Industrial Squat"]:FindFirstChild("interactSeat")
             if seat then
                 game:GetService("ReplicatedStorage").rEvents.machineInteractRemote:InvokeServer("useMachine", seat)
             end
         end
-        print("[Jungle Squat] AcciÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³n ejecutada.")
+        print("[Industrial Squat] Ejecutada.")
     else
-        warn("[Jungle Squat] Personaje no encontrado o no tiene HumanoidRootPart.")
+        warn("[Industrial Squat] Personaje no encontradi")
     end
 end)
 
 
 -- ÃƒÆ’Ã‚Â°Ãƒâ€¦Ã‚Â¸ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒâ€¦Ã¢â‚¬â„¢ FOLDER REBIRTH (Ordenado con Anti AFK antes de Anti Lag)
-local RebirthFolder = AutoFarm:AddFolder("OP Rebirth")
+local RebirthFolder = AutoFarm:AddFolder("OP Rebirth (Proximamente)")
 
 local player = game.Players.LocalPlayer
 local leaderstats = player:WaitForChild("leaderstats")
@@ -670,12 +670,12 @@ RebirthFolder:AddButton("Anti Lag", function()
 end)
 
 -- ÃƒÆ’Ã‚Â°Ãƒâ€¦Ã‚Â¸Ãƒâ€¦Ã‚Â¸Ãƒâ€šÃ‚Â¢ Jungle Lift (Nuevo)
-RebirthFolder:AddButton("Jungle Lift", function()
+RebirthFolder:AddButton("Industrial Lift", function()
     local player = game.Players.LocalPlayer
     local char = player.Character or player.CharacterAdded:Wait()
     local hrp = char:WaitForChild("HumanoidRootPart")
 
-    hrp.CFrame = CFrame.new(-8652.8672, 29.2667, 2089.2617)
+    hrp.CFrame = CFrame.new(-5492.705078125, 60.201866149902344, 4643.64208984375)
     task.wait(0.2)
 
     local VirtualInputManager = game:GetService("VirtualInputManager")
@@ -683,10 +683,10 @@ RebirthFolder:AddButton("Jungle Lift", function()
     task.wait(0.05)
     VirtualInputManager:SendKeyEvent(false, Enum.KeyCode.E, false, game)
 
-    print("[Jungle Lift] Teletransport ejecutado correctamente.")
+    print("[Industrial Lift] Teletransport ejecutado correctamente.")
 end)
 
-AutoFarm:AddLabel("Farm Whiteout Packs")
+AutoFarm:AddLabel("")
 
 local autoEquipToolsFolder = AutoFarm:AddFolder("Auto Tools")
 
@@ -701,10 +701,10 @@ local PET_NAME = "Swift Samurai"
 local ROCK_NAME = "Rock5M"
 local PROTEIN_EGG_NAME = "ProteinEgg"
 local PROTEIN_EGG_INTERVAL = 30 * 60 -- 30 min
-local REPS_PER_CYCLE = 160
+local REPS_PER_CYCLE = 180
 local REP_DELAY = 0.01
 local ROCK_INTERVAL = 5
-local MAX_PING = 700
+local MAX_PING = 1100
 
 local HumanoidRootPart
 local lastProteinEggTime = 0
@@ -933,7 +933,7 @@ local function gettool()
     game:GetService("Players").LocalPlayer.muscleEvent:FireServer("punch", "rightHand")
 end
  
-local tinyIslandRockSwitch = folder:AddSwitch("Farm Tiny Island Rock", function(bool)
+local tinyIslandRockSwitch = folder:AddSwitch("Tiny Island - 0", function(bool)
     selectrock = "Tiny Island Rock"
     getgenv().autoFarm = bool
  
@@ -960,7 +960,7 @@ local tinyIslandRockSwitch = folder:AddSwitch("Farm Tiny Island Rock", function(
     end
 end)
  
-local starterIslandRockSwitch = folder:AddSwitch("Farm Starter Island Rock", function(bool)
+local starterIslandRockSwitch = folder:AddSwitch("Starter Island - 100", function(bool)
     selectrock = "Starter Island Rock"
     getgenv().autoFarm = bool
  
@@ -987,7 +987,7 @@ local starterIslandRockSwitch = folder:AddSwitch("Farm Starter Island Rock", fun
     end
 end)
  
-local legendBeachRockSwitch = folder:AddSwitch("Farm Legend Beach Rock", function(bool)
+local legendBeachRockSwitch = folder:AddSwitch("Legend Beach - 5K", function(bool)
     selectrock = "Legend Beach Rock"
     getgenv().autoFarm = bool
  
@@ -1014,7 +1014,7 @@ local legendBeachRockSwitch = folder:AddSwitch("Farm Legend Beach Rock", functio
     end
 end)
  
-local frostGymRockSwitch = folder:AddSwitch("Farm Frost Gym Rock", function(bool)
+local frostGymRockSwitch = folder:AddSwitch("Frost Gym - 150K", function(bool)
     selectrock = "Frost Gym Rock"
     getgenv().autoFarm = bool
  
@@ -1041,7 +1041,7 @@ local frostGymRockSwitch = folder:AddSwitch("Farm Frost Gym Rock", function(bool
     end
 end)
  
-local mythicalGymRockSwitch = folder:AddSwitch("Farm Mythical Gym Rock", function(bool)
+local mythicalGymRockSwitch = folder:AddSwitch("Mythical Gym - 400K", function(bool)
     selectrock = "Mythical Gym Rock"
     getgenv().autoFarm = bool
  
@@ -1068,7 +1068,7 @@ local mythicalGymRockSwitch = folder:AddSwitch("Farm Mythical Gym Rock", functio
     end
 end)
  
-local eternalGymRockSwitch = folder:AddSwitch("Farm Eternal Gym Rock", function(bool)
+local eternalGymRockSwitch = folder:AddSwitch("Eternal Gym - 750K", function(bool)
     selectrock = "Eternal Gym Rock"
     getgenv().autoFarm = bool
  
@@ -1095,7 +1095,7 @@ local eternalGymRockSwitch = folder:AddSwitch("Farm Eternal Gym Rock", function(
     end
 end)
  
-local legendGymRockSwitch = folder:AddSwitch("Farm Legend Gym Rock", function(bool)
+local legendGymRockSwitch = folder:AddSwitch("Legend Gym - 1M", function(bool)
     selectrock = "Legend Gym Rock"
     getgenv().autoFarm = bool
  
@@ -1122,7 +1122,7 @@ local legendGymRockSwitch = folder:AddSwitch("Farm Legend Gym Rock", function(bo
     end
 end)
  
-local muscleKingGymRockSwitch = folder:AddSwitch("Farm Muscle King Gym Rock", function(bool)
+local muscleKingGymRockSwitch = folder:AddSwitch("Muscle King - 5M", function(bool)
     selectrock = "Muscle King Gym Rock"
     getgenv().autoFarm = bool
  
@@ -1149,7 +1149,7 @@ local muscleKingGymRockSwitch = folder:AddSwitch("Farm Muscle King Gym Rock", fu
     end
 end)
  
-local ancientJungleRockSwitch = folder:AddSwitch("Farm Ancient Jungle Rock", function(bool)
+local ancientJungleRockSwitch = folder:AddSwitch("Ancient Jungle - 10M", function(bool)
     selectrock = "Ancient Jungle Rock"
     getgenv().autoFarm = bool
  
@@ -1175,7 +1175,60 @@ local ancientJungleRockSwitch = folder:AddSwitch("Farm Ancient Jungle Rock", fun
         end)
     end
 end)
+
+local starterIslandRockSwitch = folder:AddSwitch("Industrial Gym - 25M", function(bool)
+    selectrock = "Industrial Gym Rock"
+    getgenv().autoFarm = bool
  
+    if bool then
+        spawn(function()
+            while getgenv().autoFarm do
+                task.wait()
+                if game:GetService("Players").LocalPlayer.Durability.Value >= 25000000 then
+                    for i, v in pairs(game:GetService("Workspace").machinesFolder:GetDescendants()) do
+                        if v.Name == "neededDurability" and v.Value == 25000000 and 
+                           game.Players.LocalPlayer.Character:FindFirstChild("LeftHand") and 
+                           game.Players.LocalPlayer.Character:FindFirstChild("RightHand") then
+ 
+                            firetouchinterest(v.Parent.Rock, game:GetService("Players").LocalPlayer.Character.RightHand, 0)
+                            firetouchinterest(v.Parent.Rock, game:GetService("Players").LocalPlayer.Character.RightHand, 1)
+                            firetouchinterest(v.Parent.Rock, game:GetService("Players").LocalPlayer.Character.LeftHand, 0)
+                            firetouchinterest(v.Parent.Rock, game:GetService("Players").LocalPlayer.Character.LeftHand, 1)
+                            gettool()
+                        end
+                    end
+                end
+            end
+        end)
+    end
+end)
+
+local starterIslandRockSwitch = folder:AddSwitch("Overcharged Gym - 0", function(bool)
+    selectrock = "Overcharged Gym Rock"
+    getgenv().autoFarm = bool
+ 
+    if bool then
+        spawn(function()
+            while getgenv().autoFarm do
+                task.wait()
+                if game:GetService("Players").LocalPlayer.Durability.Value >= 0 then
+                    for i, v in pairs(game:GetService("Workspace").machinesFolder:GetDescendants()) do
+                        if v.Name == "neededDurability" and v.Value == 0 and 
+                           game.Players.LocalPlayer.Character:FindFirstChild("LeftHand") and 
+                           game.Players.LocalPlayer.Character:FindFirstChild("RightHand") then
+ 
+                            firetouchinterest(v.Parent.Rock, game:GetService("Players").LocalPlayer.Character.RightHand, 0)
+                            firetouchinterest(v.Parent.Rock, game:GetService("Players").LocalPlayer.Character.RightHand, 1)
+                            firetouchinterest(v.Parent.Rock, game:GetService("Players").LocalPlayer.Character.LeftHand, 0)
+                            firetouchinterest(v.Parent.Rock, game:GetService("Players").LocalPlayer.Character.LeftHand, 1)
+                            gettool()
+                        end
+                    end
+                end
+            end
+        end)
+    end
+end)
  
 getgenv().StarterIslandBenchPress = false
 getgenv().StarterIslandSquat = false
@@ -1224,6 +1277,15 @@ getgenv().JungleGymSquat = false
 getgenv().JungleGymDeadlift = false
 getgenv().JungleGymPullUp = false
 getgenv().JungleGymBoulder = false
+
+getgenv().IndustrialGymBenchPress = false
+getgenv().IndustrialGymSquat = false
+getgenv().IndustrialGymDeadlift = false
+
+getgenv().OverchargedGymBenchPress = false
+getgenv().OverchargedGymSquat = false
+getgenv().OverchargedGymDeadlift = false
+getgenv().OverchargedGymBoulder = false
  
 local positions = {
     StarterIsland = {
@@ -1281,6 +1343,17 @@ local positions = {
         Deadlift = CFrame.new(-8352, 34, 2878),
         PullUp = CFrame.new(-8666, 34, 2070),
         Boulder = CFrame.new(-8621, 34, 2684)
+    },
+	IndustrialGym = {
+        BenchPress = CFrame.new(-5469.7197265625, 88.70244598388672, 4452.34716796875),
+        Squat = CFrame.new(-5217.115234375, 60.154441833496094, 5418.0771484375),
+        Deadlift = CFrame.new(-5492.705078125, 60.201866149902344, 4643.64208984375)
+    },
+	OverchargedGym = {
+        BenchPress = CFrame.new(-2399.94482421875, 181.69009399414062, 4522.48974609375),
+        Squat = CFrame.new(-2667.650390625, 176.263427734375, 5473.2197265625),
+        Deadlift = CFrame.new(-3020.93017578125, 175.82144165039062, 4698.78466796875),
+        Boulder = CFrame.new(-2984.65478515625, 175.96656799316406, 5368.8125)
     }
 }
  
@@ -1320,8 +1393,8 @@ rebirthsFolder:AddTextBox("Rebirth Target", function(text)
         })
     else
         game:GetService("StarterGui"):SetCore("SendNotification", {
-            Title = "Entrada InvÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¡lida",
-            Text = "Por favor ingresa un nÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Âºmero vÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¡lido mayor que 0",
+            Title = "Entrada Invalida",
+            Text = "Por favor ingresa un numero mayor que 0",
             Duration = 0
         })
     end
@@ -1350,7 +1423,7 @@ local targetSwitch = rebirthsFolder:AddSwitch("Auto Rebirth Target", function(bo
                     _G.targetRebirthActive = false
                     
                     game:GetService("StarterGui"):SetCore("SendNotification", {
-                        Title = "ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¡Objetivo Alcanzado!",
+                        Title = "¡Objetivo Alcanzado!",
                         Text = "Has alcanzado " .. tostring(targetRebirthValue) .. " renacimientos",
                         Duration = 5
                     })
@@ -1362,7 +1435,7 @@ local targetSwitch = rebirthsFolder:AddSwitch("Auto Rebirth Target", function(bo
             end
         end)
     end
-end, "Renacimiento automÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¡tico hasta alcanzar el objetivo")
+end, "Renacimiento automatico hasta alcanzar el objetivo")
 
 infiniteSwitch = rebirthsFolder:AddSwitch("Auto Rebirth (Infinite)", function(bool)
     _G.infiniteRebirthActive = bool
@@ -1393,7 +1466,7 @@ local sizeSwitch = rebirthsFolder:AddSwitch("Auto Size 1", function(bool)
             end
         end)
     end
-end, "Establece el tamaÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â±o del personaje a 1 continuamente")
+end, "Establece el tamaño del personaje a 1 continuamente")
 
 local teleportSwitch = rebirthsFolder:AddSwitch("Auto Teleport to Muscle King", function(bool)
     _G.teleportActive = bool
@@ -1407,7 +1480,7 @@ local teleportSwitch = rebirthsFolder:AddSwitch("Auto Teleport to Muscle King", 
             end
         end)
     end
-end, "Teletransporte continuo al Rey MÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Âºsculo")
+end, "Teletransporte continuo al Muscle King")
 
 
 
@@ -1415,14 +1488,8 @@ local Lighting = game:GetService("Lighting")
 
 -- Tabla para registrar los tiempos disponibles
 local timeOptions = {
-    "Tomorrow",
-    "Noon",
-    "Late",
-    "SunSet",
-    "Evening",
-    "Midnight",
-    "SunRise",
-    "EarlyMorning"
+    "Day",
+	"Nigth"
 }
 
 -- Dropdown
@@ -1432,41 +1499,15 @@ local timeDropdown = AutoFarm:AddDropdown("Change Time", function(selection)
     Lighting.FogEnd = 100000
     Lighting.Ambient = Color3.fromRGB(127,127,127)
 
-    if selection == "MaÃƒÆ’Ã‚Â±ana" then
+    if selection == "Day" then
         Lighting.ClockTime = 6
         Lighting.Brightness = 2
         Lighting.Ambient = Color3.fromRGB(200, 200, 255)
-    elseif selection == "MediodÃƒÆ’Ã‚Â­a" then
-        Lighting.ClockTime = 12
-        Lighting.Brightness = 3
-        Lighting.Ambient = Color3.fromRGB(255, 255, 255)
-    elseif selection == "Tarde" then
-        Lighting.ClockTime = 16
-        Lighting.Brightness = 2.5
-        Lighting.Ambient = Color3.fromRGB(255, 220, 180)
-    elseif selection == "Atardecer" then
-        Lighting.ClockTime = 18
-        Lighting.Brightness = 2
-        Lighting.Ambient = Color3.fromRGB(255, 150, 100)
-        Lighting.FogEnd = 500
-    elseif selection == "Noche" then
+    elseif selection == "Nigth" then
         Lighting.ClockTime = 20
         Lighting.Brightness = 1.5
         Lighting.Ambient = Color3.fromRGB(100, 100, 150)
         Lighting.FogEnd = 800
-    elseif selection == "Medianoche" then
-        Lighting.ClockTime = 0
-        Lighting.Brightness = 1
-        Lighting.Ambient = Color3.fromRGB(50, 50, 100)
-        Lighting.FogEnd = 400
-    elseif selection == "Amanecer" then
-        Lighting.ClockTime = 4
-        Lighting.Brightness = 1.8
-        Lighting.Ambient = Color3.fromRGB(180, 180, 220)
-    elseif selection == "Madrugada" then
-        Lighting.ClockTime = 2
-        Lighting.Brightness = 1.2
-        Lighting.Ambient = Color3.fromRGB(100, 120, 180)
     end
 end)
 
@@ -1506,6 +1547,9 @@ projectedStrengthLabel.TextSize = 20
 local projectedDurabilityLabel = features:AddLabel("Durability Rate: 0 /Hour | 0 /Day | 0 /Week | 0 /Month")
 projectedDurabilityLabel.TextSize = 20
 
+local projectedAgilityLabel = features:AddLabel("Agility Rate: 0 /Hour | 0 /Day | 0 /Week | 0 /Month")
+projectedAgilityLabel.TextSize = 20
+
 features:AddLabel("").TextSize = 10
 
 local statsLabel = features:AddLabel("Stats:")
@@ -1517,13 +1561,18 @@ strengthLabel.TextSize = 20
 local durabilityLabel = features:AddLabel("Durability: 0 | Gained: 0")
 durabilityLabel.TextSize = 20
 
+local agilityLabel = features:AddLabel("Agility: 0 | Gained: 0")
+agilityLabel.TextSize = 20
+
 local startTime = tick()
 local initialStrength = strengthStat.Value
 local initialDurability = durabilityStat.Value
+local initialAgility = agilitySta.Value
 local trackingStarted = false
 
 local strengthHistory = {}
 local durabilityHistory = {}
+local agilityHistory = {}
 local calculationInterval = 10
 
 task.spawn(function()
@@ -1532,12 +1581,14 @@ task.spawn(function()
         local currentTime = tick()
         local currentStrength = strengthStat.Value
         local currentDurability = durabilityStat.Value
+		local currentAgility = agilityyStat.Value
 
         if not trackingStarted and (currentStrength - initialStrength) >= 100e9 then
             trackingStarted = true
             startTime = tick()
             strengthHistory = {}
             durabilityHistory = {}
+			agilityHistory = {}
         end
 
         if trackingStarted then
@@ -1551,18 +1602,24 @@ task.spawn(function()
 
             local sessionStrengthDelta = currentStrength - initialStrength
             local sessionDurabilityDelta = currentDurability - initialDurability
+			local sessionAgilityDelta = currentAgility - initialAgility
 
             strengthLabel.Text = "Strength: " .. formatNumber(currentStrength) .. " | Gained: " .. formatNumber(sessionStrengthDelta)
             durabilityLabel.Text = "Durability: " .. formatNumber(currentDurability) .. " | Gained: " .. formatNumber(sessionDurabilityDelta)
+			agilityLabel.Text = "Agility: " .. formatNumber(currentAgility) .. " | Gained: " .. formatNumber(sessionAgilityDelta)
 
             table.insert(strengthHistory, {time = currentTime, value = currentStrength})
             table.insert(durabilityHistory, {time = currentTime, value = currentDurability})
+			table.insert(agilityHistory, {time = currentTime, value = currentAgility})
 
             while #strengthHistory > 0 and currentTime - strengthHistory[1].time > calculationInterval do
                 table.remove(strengthHistory, 1)
             end
             while #durabilityHistory > 0 and currentTime - durabilityHistory[1].time > calculationInterval do
                 table.remove(durabilityHistory, 1)
+            end
+				while #agilityHistory > 0 and currentTime - agilityHistory[1].time > calculationInterval do
+                table.remove(agilityHistory, 1)
             end
 
             if currentTime - lastCalcTime >= calculationInterval then
@@ -1588,6 +1645,17 @@ task.spawn(function()
                     local durabilityPerMonth = math.floor(durabilityPerSecond * 2592000)
 
                     projectedDurabilityLabel.Text = "Durability Rate: " .. formatNumber(durabilityPerHour) .. "/Hour | " .. formatNumber(durabilityPerDay) .. "/Day | " .. formatNumber(durabilityPerWeek) .. "/Week | " .. formatNumber(durabilityPerMonth) .. "/Month"
+                end
+					
+				if #agilityHistory >= 2 then
+                    local agilityDelta = agilityHistory[#agilityHistory].value - agilityHistory[1].value
+                    local agilityPerSecond = agilityDelta / calculationInterval
+                    local agilityPerHour = math.floor(agilityPerSecond * 3600)
+                    local agilityPerDay = math.floor(agilityPerSecond * 86400)
+                    local agilityPerWeek = math.floor(agilityPerSecond * 604800)
+                    local agilityPerMonth = math.floor(agilityPerSecond * 2592000)
+
+                    projectedAgilityLabel.Text = "Agility Rate: " .. formatNumber(agilityPerHour) .. "/Hour | " .. formatNumber(agilityPerDay) .. "/Day | " .. formatNumber(agilityPerWeek) .. "/Week | " .. formatNumber(agilityPerMonth) .. "/Month"
                 end
             end
         end
@@ -1758,7 +1826,7 @@ local dropdown = Killer:AddDropdown("Select Pet", function(text)
         end
     end
 
-    local maxPets = 8
+    local maxPets = 12
     local equippedCount = math.min(#petsToEquip, maxPets)
 
     for i = 1, equippedCount do
@@ -3582,7 +3650,7 @@ Killer:AddButton("Stick Dead", function()
                     loadstring(response)()
                 end)
                 if not loadSuccess then
-                    warn("[Pegar Muerto] Error ejecutando raw:", url, err)
+                    warn("[Pegar Muerto] Error ejecutando", url, err)
                 end
             else
                 warn("[Pegar Muerto] No se pudo cargar:", url)
@@ -3696,7 +3764,7 @@ task.spawn(function()
                 if player:FindFirstChild("currentMap") then
                     Update9.Text = "Current Map: " .. tostring(player.currentMap.Value)
                 else
-                    Update9.Text = "Current Map: Aucune donnÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬ ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬ ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬ ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â©e"
+                    Update9.Text = "Current Map: Aucune donna"
                 end
             end
         end
@@ -3770,7 +3838,7 @@ teleport:AddButton("Mythical Island", function()
     })
 end)
 
-teleport:AddButton("***** Island", function()
+teleport:AddButton("Eternal Island", function()
     local player = game.Players.LocalPlayer
     local character = player.Character or player.CharacterAdded:Wait()
     local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
@@ -3822,6 +3890,32 @@ teleport:AddButton("Jungle Island", function()
     })
 end)
 
+teleport:AddButton("Industrial Island", function()
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+    humanoidRootPart.CFrame = CFrame.new(-5563.23388671875, 60.47392654418945, 4942.44482421875)
+    
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "Teletransporte",
+        Text = "Teleported to Industrial Island",
+        Duration = 0
+    })
+end)
+
+teleport:AddButton("Overcharged Island", function()
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+    humanoidRootPart.CFrame = CFrame.new(-3087.390625, 153.92820739746094, 4996.03271484375)
+    
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "Teletransporte",
+        Text = "Teleported to Overcharged Island",
+        Duration = 0
+    })
+end)
+
 teleport:AddButton("Brawl Lava", function()
     local player = game.Players.LocalPlayer
     local character = player.Character or player.CharacterAdded:Wait()
@@ -3862,7 +3956,7 @@ teleport:AddButton("Brawl Regular", function()
 end)
 
 
-local pets = window:AddTab(       "Crystals")
+local pets = window:AddTab("Crystals")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 -- Crystal data structure with exact names from your original code
@@ -3954,6 +4048,22 @@ local crystalData = {
         {name = "Enchanted Mirage", rarity = "Epic"},
         {name = "Ultra Mirage", rarity = "Unique"},
         {name = "Unstable Mirage", rarity = "Unique"}
+    },
+	["Industrial Crystal"] = {
+        {name = "Apex Overlord", rarity = "Unique"},
+        {name = "Titan Reactor", rarity = "Unique"},
+        {name = "Plasma Ravager", rarity = "Epic"},
+        {name = "Reactor Beast", rarity = "Unique"},
+        {name = "Volt Talon", rarity = "Epic"},
+        {name = "Core Pup", rarity = "Epic"}
+    },
+	["Overcharged Crystal"] = {
+        {name = "Vol Wolf", rarity = "Rare"},
+        {name = "Core Golem", rarity = "Epic"},
+        {name = "Plasma Jelly", rarity = "Epic"},
+        {name = "Sugar Tiger", rarity = "Unique"},
+        {name = "Shard Dragon", rarity = "Unique"},
+        {name = "Nova Phoenix", rarity = "Unique"}
     }
 }
 
@@ -4031,6 +4141,7 @@ petDropdown:Add("White Pegasus (Rare)")
 petDropdown:Add("Frostwave Legends Penguin (Rare)")
 petDropdown:Add("Phantom Genesis Dragon (Rare)")
 petDropdown:Add("Eternal Strike Leviathan (Rare)")
+petDropdown:Add("Volt Wolf (Rare)")
 
 -- Epic Pets
 petDropdown:Add("Blue Pheonix (Epic)")
@@ -4043,6 +4154,11 @@ petDropdown:Add("Dark Legends Manticore (Epic)")
 petDropdown:Add("Ultimate Supernova Pegasus (Epic)")
 petDropdown:Add("Lightning Strike Phantom (Epic)")
 petDropdown:Add("Golden Viking (Epic)")
+petDropdown:Add("Core Pup (Epic)")
+petDropdown:Add("Volt Talon (Epic)")
+petDropdown:Add("Core Golem (Epic)")
+petDropdown:Add("Plasma Jelly (Epic)")
+
 
 -- Unique Pets
 petDropdown:Add("Infernal Dragon (Unique)")
@@ -4053,6 +4169,13 @@ petDropdown:Add("Cybernetic Showdown Dragon (Unique)")
 petDropdown:Add("Darkstar Hunter (Unique)")
 petDropdown:Add("Muscle Sensei (Unique)")
 petDropdown:Add("Neon Guardian (Unique)")
+petDropdown:Add("Reactor Beast (Unique)")
+petDropdown:Add("Plasma Ravager (Unique)")
+petDropdown:Add("Titan Reactor (Unique)")
+petDropdown:Add("Apex Overlord (Unique)")
+petDropdown:Add("Sugar Tiger (Unique)")
+petDropdown:Add("Shard Dragon (Unique)")
+petDropdown:Add("Nova Phoenix (Unique)")
 
 -- Aura dropdown
 local auraDropdown = pets:AddDropdown("Select Aura", function(text)
@@ -4157,6 +4280,7 @@ pets:AddSwitch("Auto buy Aura", function(bool)
     end
 end)
 
+-- ACA NEW EGG OVERCHARGE
 
 
 local Gift = window:AddTab("Gift")
@@ -4344,5 +4468,5 @@ Gift:AddButton(
 
 local Credits = window:AddTab("Credits")
 
-Credits:AddLabel("SopXPlg")
-Credits:AddLabel("https://discord.gg/MVmZFsp4G")
+Credits:AddLabel("Fenix_ZM")
+Credits:AddLabel("Discord: Proximamente")
