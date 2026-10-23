@@ -109,7 +109,6 @@ local FastFarm900 = false
 local AutoRejoinActive = true
 local AutoExecuteActive = true
 local RedactNameActive = false
-local AntiCheatActive = true
 local RedactStatsActive = false
 local ConfigFileName = "ERDNPublic_Config.json"
 
@@ -159,7 +158,6 @@ local function SaveConfig()
                 AutoExecute = AutoExecuteActive,
                 AutoRejoin = AutoRejoinActive,
                 RedactName = RedactNameActive,
-                AntiCheat = AntiCheatActive,
                 RedactStats = RedactStatsActive
             }
             writefile(ConfigFileName, HttpService:JSONEncode(configData))
@@ -176,7 +174,6 @@ local function LoadConfig()
                     AutoExecuteActive = savedData.AutoExecute == true
                     AutoRejoinActive = savedData.AutoRejoin == true
                     RedactNameActive = savedData.RedactName == true
-                    AntiCheatActive = savedData.AntiCheat == true
                     RedactStatsActive = savedData.RedactStats == true
                 end
             end
@@ -276,8 +273,8 @@ local function createFarmLoop(getState, rate, burst)
     end)
 end
 
-createFarmLoop(function() return FastFarm750 end, 750, 60)
-createFarmLoop(function() return FastFarm900 end, 900, 90)
+createFarmLoop(function() return FastFarm750 end, 750, 800)
+createFarmLoop(function() return FastFarm900 end, 900, 1500)
 
 -- =======================================================
 -- 6. CREACIÓN DE PESTAÑAS CON WINDUI
@@ -388,10 +385,10 @@ FarmingTab:Toggle({
 })
 
 FarmingTab:Section({ Title = "Auto Strength OP (Velocidad Regulable)" })
-FarmingTab:Paragraph({ Title = "Recommended speed: 40", Desc = "40 = 600 Rep/s | Máx 99 = 1,000 Rep/s (1k)" })
+FarmingTab:Paragraph({ Title = "Recommended speed: 40", Desc = "" })
 
 local REPS_PER_CYCLE = 600
-local REP_DELAY = 0.01
+local REP_DELAY = 0.05
 
 task.spawn(function()
     while true do
@@ -475,7 +472,7 @@ RebirthTab:Toggle({
         if bool then
             task.spawn(function()
                 while _G.targetRebirthActive do
-                    task.wait(0.2)
+                    task.wait(0.1)
                     if Rebirths.Value >= targetRebirthValue then
                         _G.targetRebirthActive = false
                         break
