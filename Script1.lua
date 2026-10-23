@@ -104,7 +104,7 @@ local Strength = LP.leaderstats:WaitForChild("Strength")
 local Rebirths = LP.leaderstats:WaitForChild("Rebirths")
 local Durability = LP:WaitForChild("Durability")
 
-local FastFarm750 = false
+local FastFarm600 = false
 local FastFarm900 = false
 local AutoRejoinActive = true
 local AutoExecuteActive = true
@@ -273,7 +273,7 @@ local function createFarmLoop(getState, rate, burst)
     end)
 end
 
-createFarmLoop(function() return FastFarm750 end, 750, 800)
+createFarmLoop(function() return FastFarm600 end, 600, 1000)
 createFarmLoop(function() return FastFarm900 end, 900, 1500)
 
 -- =======================================================
@@ -365,12 +365,12 @@ PrincipalTab:Toggle({
 -- -------------------------------------------------------
 FarmingTab:Section({ Title = "Modos de Farming" })
 FarmingTab:Toggle({
-    Title = "Farm 750 Rep/s",
+    Title = "Farm 600 Rep/s",
     Desc = "Entrenamiento rápido estándar",
     Value = false,
     Callback = function(state)
-        FastFarm750 = state
-        if state then FastFarm900 = false end
+        FastFarm600 = state
+        if state then FastFarm600 = false end
     end
 })
 
@@ -380,7 +380,7 @@ FarmingTab:Toggle({
     Value = false,
     Callback = function(state)
         FastFarm900 = state
-        if state then FastFarm750 = false end
+        if state then FastFarm600 = false end
     end
 })
 
