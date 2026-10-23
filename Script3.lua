@@ -104,7 +104,7 @@ local Strength = LP.leaderstats:WaitForChild("Strength")
 local Rebirths = LP.leaderstats:WaitForChild("Rebirths")
 local Durability = LP:WaitForChild("Durability")
 
-local FastFarm750 = false
+local FastFarm600 = false
 local FastFarm900 = false
 local AutoRejoinActive = true
 local AutoExecuteActive = true
@@ -159,7 +159,6 @@ local function SaveConfig()
                 AutoExecute = AutoExecuteActive,
                 AutoRejoin = AutoRejoinActive,
                 RedactName = RedactNameActive,
-                AntiCheat = AntiCheatActive,
                 RedactStats = RedactStatsActive
             }
             writefile(ConfigFileName, HttpService:JSONEncode(configData))
@@ -176,7 +175,6 @@ local function LoadConfig()
                     AutoExecuteActive = savedData.AutoExecute == true
                     AutoRejoinActive = savedData.AutoRejoin == true
                     RedactNameActive = savedData.RedactName == true
-                    AntiCheatActive = savedData.AntiCheat == true
                     RedactStatsActive = savedData.RedactStats == true
                 end
             end
@@ -276,8 +274,8 @@ local function createFarmLoop(getState, rate, burst)
     end)
 end
 
-createFarmLoop(function() return FastFarm750 end, 750, 60)
-createFarmLoop(function() return FastFarm900 end, 900, 90)
+createFarmLoop(function() return FastFarm600 end, 600, 700)
+createFarmLoop(function() return FastFarm900 end, 900, 1200)
 
 -- =======================================================
 -- 6. CREACIÓN DE PESTAÑAS CON WINDUI
@@ -368,11 +366,11 @@ PrincipalTab:Toggle({
 -- -------------------------------------------------------
 FarmingTab:Section({ Title = "Modos de Farming" })
 FarmingTab:Toggle({
-    Title = "Farm 750 Rep/s",
+    Title = "Farm 600 Rep/s",
     Desc = "Entrenamiento rápido estándar",
     Value = false,
     Callback = function(state)
-        FastFarm750 = state
+        FastFarm600 = state
         if state then FastFarm900 = false end
     end
 })
@@ -391,7 +389,7 @@ FarmingTab:Section({ Title = "Auto Strength OP (Velocidad Regulable)" })
 FarmingTab:Paragraph({ Title = "Recommended speed: 40", Desc = "40 = 600 Rep/s | Máx 99 = 1,000 Rep/s (1k)" })
 
 local REPS_PER_CYCLE = 600
-local REP_DELAY = 0.01
+local REP_DELAY = 0.05
 
 task.spawn(function()
     while true do
