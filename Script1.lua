@@ -68,7 +68,7 @@ floatButton.Size = UDim2.new(0, 170, 0, 42)
 floatButton.Position = UDim2.new(0, 20, 0.4, 0)
 floatButton.BackgroundColor3 = Color3.fromHex("#121214")
 floatButton.TextColor3 = Color3.fromHex("#FFFFFF")
-floatButton.Text = "Open ERDN Premium"
+floatButton.Text = "ERDN Premium"
 floatButton.TextSize = 13
 floatButton.Font = Enum.Font.GothamBold
 floatButton.Active = true
@@ -941,13 +941,6 @@ TeleportTab:Button({ Title = "Halloween Gym", Callback = function() tpTo(CFrame.
 -- -------------------------------------------------------
 -- PESTAÑA: SETTINGS
 -- -------------------------------------------------------
-SettingsTab:Section({ Title = "Protección y Anti-Cheat" })
-SettingsTab:Toggle({
-    Title = "Anti-Cheat / Kick Protection",
-    Desc = "Evita expulsiones por el juego",
-    Value = AntiCheatActive,
-    Callback = function(state) AntiCheatActive = state; SaveConfig() end
-})
 
 SettingsTab:Section({ Title = "Auto Execute & Rejoin" })
 SettingsTab:Toggle({
