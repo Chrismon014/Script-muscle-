@@ -828,13 +828,6 @@ TeleportTab:Button({ Title = "Halloween Gym", Callback = function() tpTo(CFrame.
 -- -------------------------------------------------------
 -- PESTAÑA: SETTINGS
 -- -------------------------------------------------------
-SettingsTab:Section({ Title = "Protección y Anti-Cheat" })
-SettingsTab:Toggle({
-    Title = "Anti-Cheat / Kick Protection",
-    Desc = "Evita expulsiones por el juego",
-    Value = AntiCheatActive,
-    Callback = function(state) AntiCheatActive = state; SaveConfig() end
-})
 
 SettingsTab:Section({ Title = "Auto Execute & Rejoin" })
 SettingsTab:Toggle({
